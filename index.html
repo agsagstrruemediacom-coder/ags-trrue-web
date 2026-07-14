@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AGS TRRUE MEDIA — The Voice of Common People</title>
+<meta name="description" content="AGS TRRUE MEDIA — Engineering awareness, industry news, technology and career guidance for the Tamil community. Established 2018, Chennai, India." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<style>
+:root{
+  --primary:#FF6B6B;
+  --secondary:#FF8A80;
+  --accent:#FFD54F;
+  --highlight:#FFE082;
+  --bg:#0F0F10;
+  --bg2:#1A1A1D;
+  --text:#FFFFFF;
+  --text-dim:#B7B4B0;
+  --font-display:'Orbitron', sans-serif;
+  --font-sub:'Space Grotesk', sans-serif;
+  --font-body:'Poppins', sans-serif;
+  --font-num:'Sora', sans-serif;
+}
+
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--font-body);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--primary); color:#0F0F10;}
+
+/* scrollbar */
+::-webkit-scrollbar{width:8px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:linear-gradient(var(--primary),var(--accent)); border-radius:10px;}
+
+h1,h2,h3,.font-display{font-family:var(--font-display);}
+.font-sub{font-family:var(--font-sub);}
+.font-num{font-family:var(--font-num);}
+
+.section{position:relative; padding:110px 6vw; overflow:hidden;}
+@media(max-width:768px){.section{padding:80px 6vw;}}
+
+.eyebrow{
+  font-family:var(--font-sub);
+  letter-spacing:.35em;
+  text-transform:uppercase;
+  font-size:.72rem;
+  color:var(--accent);
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.eyebrow::before{
+  content:'';
+  width:28px; height:2px;
+  background:linear-gradient(90deg,var(--primary),var(--accent));
+}
+
+.grad-text{
+  background:linear-gradient(100deg,var(--primary) 0%, var(--accent) 55%, var(--highlight) 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.glass{
+  background:rgba(26,26,29,0.55);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,0.08);
+}
+
+.neon-border{
+  position:relative;
+  border:1px solid rgba(255,107,107,.35);
+  transition:border-color .4s ease, box-shadow .4s ease;
+}
+.neon-border:hover{
+  border-color:rgba(255,213,79,.7);
+  box-shadow:0 0 25px rgba(255,107,107,.35), 0 0 55px rgba(255,213,79,.18);
+}
+
+/* NAV */
+#nav{
+  position:fixed; top:0; left:0; width:100%; z-index:100;
+  padding:22px 2vw;
+  display:flex; align-items:center; justify-content:space-between;
+  transition:all .4s ease;
+  background:rgba(15,15,16,0);
+  border-bottom:1px solid rgba(255,255,255,0);
+}
+#nav.scrolled{
+  padding:12px 6vw;
+  background:rgba(15,15,16,0.72);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(255,107,107,0.15);
+}
+.logo-mark{
+  display:flex;
+  align-items:center;
+  text-decoration:none;
+}
+
+.logo-mark img{
+  width:280px;
+  height:auto;
+  display:block;
+  object-fit:contain;
+  filter:drop-shadow(0 0 10px rgba(255,107,107,.35));
+  transition:.4s ease;
+}
+
+.logo-mark img:hover{
+  transform:scale(1.05);
+  filter:
+  drop-shadow(0 0 12px rgba(255,107,107,.7))
+  drop-shadow(0 0 25px rgba(255,213,79,.4));
+}
+.logo-mark .dot{
+  width:10px; height:10px; border-radius:50%;
+  background:radial-gradient(circle at 35% 30%, var(--highlight), var(--primary));
+  box-shadow:0 0 12px var(--primary), 0 0 24px rgba(255,107,107,.6);
+  animation:pulseDot 2.4s ease-in-out infinite;
+}
+@keyframes pulseDot{0%,100%{transform:scale(1); opacity:1;} 50%{transform:scale(1.35); opacity:.65;}}
+
+.nav-links
+{
+    display:flex;
+     gap:34px;
+      margin-right:auto;
+  margin-left:580px;
+      font-family:var(--font-sub); 
+      font-size:.95rem;
+       font-weight:600; 
+  letter-spacing:.04em;}
+  
+.nav-links a{
+  position:relative; color:var(--text-dim); text-decoration:none; padding-bottom:4px; transition:color .3s;
+}
+.nav-links a::after{
+  content:''; position:absolute; left:0; bottom:0; width:0; height:2px;
+  background:linear-gradient(90deg,var(--primary),var(--accent));
+  transition:width .35s ease;
+}
+.nav-links a:hover{color:var(--text);}
+.nav-links a:hover::after{width:100%;}
+
+#menuBtn{display:none; flex-direction:column; gap:5px; cursor:pointer; z-index:110;}
+#menuBtn span{width:24px; height:2px; background:var(--text); transition:.3s;}
+
+#mobileMenu{
+  position:fixed; inset:0; background:rgba(15,15,16,0.98); backdrop-filter:blur(20px);
+  z-index:105; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:32px;
+  transform:translateY(-100%); transition:transform .5s cubic-bezier(.77,0,.18,1);
+}
+#mobileMenu.open{transform:translateY(0);}
+#mobileMenu a{color:var(--text); font-family:var(--font-sub); font-size:1.4rem; text-decoration:none;}
+
+@media(min-width:901px){#menuBtn,#mobileMenu{display:none;}}
+@media(max-width:900px){.nav-links{display:none;} #menuBtn{display:flex;}}
+
+/* HERO */
+#hero{
+  height:100svh; position:relative; display:flex; align-items:center; justify-content:center;
+  text-align:center; padding:0 6vw;
+}
+#heroCanvas{position:absolute; inset:0; width:100%; height:100%; z-index:0;}
+.blob{
+  position:absolute; border-radius:50%; filter:blur(90px); opacity:.35; z-index:0; pointer-events:none;
+}
+.hero-content{position:relative; z-index:3; max-width:920px;}
+.hero-tag{
+  font-family:var(--font-sub); letter-spacing:.4em; text-transform:uppercase; font-size:.72rem;
+  color:var(--highlight); margin-bottom:22px; display:inline-block;
+}
+.hero-title{
+  font-size:clamp(2.6rem, 8vw, 5.6rem);
+  font-weight:900;
+  line-height:1.02;
+  letter-spacing:.01em;
+  margin-bottom:18px;
+}
+.hero-sub{
+  font-family:var(--font-sub); font-size:clamp(1rem,2vw,1.35rem); color:var(--text-dim);
+  margin-bottom:8px;
+}
+#typewrap{
+  font-family:var(--font-sub); font-size:clamp(1rem,2.4vw,1.5rem); font-weight:600; margin-bottom:38px; min-height:2.4rem;
+}
+#typewrap .grad-text{border-right:2px solid var(--accent); padding-right:4px;}
+
+.btn-row{display:flex; gap:20px; justify-content:center; flex-wrap:wrap;}
+.btn{
+  font-family:var(--font-sub); font-weight:600; font-size:.92rem; letter-spacing:.02em;
+  padding:16px 34px; border-radius:100px; cursor:pointer; text-decoration:none;
+  display:inline-flex; align-items:center; gap:10px; position:relative; overflow:hidden;
+  transition:transform .35s ease;
+}
+.btn:hover{transform:translateY(-3px);}
+.btn-primary{
+  background:linear-gradient(120deg,var(--primary),var(--accent));
+  color:#0F0F10; border:none;
+}
+.btn-primary:hover{box-shadow:0 0 30px rgba(255,107,107,.5), 0 0 55px rgba(255,213,79,.3);}
+.btn-outline{
+  background:transparent; color:var(--text); border:1.5px solid rgba(255,213,79,.5);
+}
+.btn-outline:hover{border-color:var(--accent); box-shadow:0 0 25px rgba(255,213,79,.3); color:var(--accent);}
+
+.scroll-cue{
+  position:absolute; bottom:34px; left:50%; transform:translateX(-50%); z-index:3;
+  display:flex; flex-direction:column; align-items:center; gap:8px; color:var(--text-dim); font-size:.68rem;
+  letter-spacing:.3em; text-transform:uppercase; font-family:var(--font-sub);
+}
+.scroll-line{width:1px; height:40px; background:linear-gradient(var(--primary),transparent); animation:scrollDown 1.8s ease-in-out infinite;}
+@keyframes scrollDown{0%{transform:scaleY(0); transform-origin:top;} 50%{transform:scaleY(1); transform-origin:top;} 51%{transform-origin:bottom;} 100%{transform:scaleY(0); transform-origin:bottom;}}
+
+/* waveform divider - signature element */
+.waveform{
+  width:100%; height:46px; display:flex; align-items:center; justify-content:center; gap:3px; margin:0 auto;
+  max-width:520px;
+}
+.waveform span{
+  width:3px; border-radius:3px; background:linear-gradient(var(--primary),var(--accent));
+  animation:wave 1.6s ease-in-out infinite;
+  opacity:.85;
+}
+@keyframes wave{0%,100%{height:6px;} 50%{height:38px;}}
+
+/* SECTION HEADERS */
+.sec-head{max-width:680px; margin-bottom:60px;}
+.sec-title{font-size:clamp(1.9rem,4vw,3rem); font-weight:800; margin-top:16px; line-height:1.1;}
+
+/* ABOUT */
+#about{background:radial-gradient(ellipse at 20% 20%, rgba(255,107,107,.08), transparent 55%), var(--bg);}
+.about-grid{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;}
+@media(max-width:900px){.about-grid{grid-template-columns:1fr;}}
+.about-card{padding:42px; border-radius:24px;}
+.about-focus{
+  display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-top:28px;
+}
+.focus-pill{
+  padding:12px 16px; border-radius:14px; background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.06); font-size:.82rem; font-family:var(--font-sub);
+  color:var(--text-dim); display:flex; align-items:center; gap:10px; transition:.3s;
+}
+.focus-pill:hover{border-color:rgba(255,213,79,.4); color:var(--text); background:rgba(255,107,107,.06);}
+.focus-pill .ic{width:6px; height:6px; border-radius:50%; background:var(--accent); box-shadow:0 0 8px var(--accent); flex-shrink:0;}
+
+/* STATS */
+#stats{
+  background:linear-gradient(180deg,var(--bg2),var(--bg));
+  border-top:1px solid rgba(255,255,255,.05); border-bottom:1px solid rgba(255,255,255,.05);
+}
+.stats-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:30px; text-align:center;}
+@media(max-width:900px){.stats-grid{grid-template-columns:repeat(2,1fr); gap:40px 20px;}}
+.stat-num{
+  font-family:var(--font-num); font-weight:800; font-size:clamp(2.2rem,5vw,3.4rem);
+  background:linear-gradient(120deg,var(--primary),var(--accent));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.stat-label{font-family:var(--font-sub); color:var(--text-dim); letter-spacing:.15em; text-transform:uppercase; font-size:.75rem; margin-top:8px;}
+
+/* SERVICES */
+.services-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:26px;}
+@media(max-width:1000px){.services-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:640px){.services-grid{grid-template-columns:1fr;}}
+.service-card{
+  padding:36px 28px; border-radius:22px; background:rgba(26,26,29,.5);
+  backdrop-filter:blur(14px); border:1px solid rgba(255,255,255,.06);
+  transition:transform .45s cubic-bezier(.2,.8,.2,1), box-shadow .45s ease, border-color .45s ease;
+  position:relative; overflow:hidden; cursor:default;
+}
+.service-card::before{
+  content:''; position:absolute; inset:0; opacity:0; transition:opacity .45s ease;
+  background:radial-gradient(circle at 30% 0%, rgba(255,213,79,.12), transparent 60%);
+}
+.service-card:hover{
+  transform:translateY(-10px) scale(1.015);
+  border-color:rgba(255,107,107,.4);
+  box-shadow:0 20px 50px rgba(0,0,0,.4), 0 0 40px rgba(255,107,107,.15);
+}
+.service-card:hover::before{opacity:1;}
+.service-ic{
+  width:52px; height:52px; border-radius:14px; display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(135deg, rgba(255,107,107,.18), rgba(255,213,79,.12));
+  border:1px solid rgba(255,213,79,.25); margin-bottom:22px; transition:transform .45s ease;
+  color:var(--accent);
+}
+.service-card:hover .service-ic{transform:rotate(-8deg) scale(1.08);}
+.service-card h3{font-family:var(--font-sub); font-size:1.15rem; margin-bottom:10px; font-weight:600;}
+.service-card p{font-size:.88rem; color:var(--text-dim); line-height:1.6;}
+
+/* VIDEOS */
+.video-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:26px; margin-bottom:70px;}
+@media(max-width:1000px){.video-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:640px){.video-grid{grid-template-columns:1fr;}}
+.video-card{
+  border-radius:20px; overflow:hidden; background:var(--bg2); border:1px solid rgba(255,255,255,.06);
+  transition:transform .4s ease, box-shadow .4s ease; text-decoration:none; color:var(--text); display:block;
+}
+.video-card:hover{transform:translateY(-8px); box-shadow:0 20px 44px rgba(0,0,0,.45), 0 0 30px rgba(255,107,107,.18);}
+.video-thumb{
+  width:100%;
+  aspect-ratio:16/9;
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(135deg,#241416,#1a1a1d);
+}
+
+.video-thumb img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  position:absolute;
+  top:0;
+  left:0;
+  display:block;
+}
+.video-thumb::after{
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(circle at 50% 50%, rgba(255,107,107,.18), transparent 65%);
+}
+.play-ic{
+  width:56px; height:56px; border-radius:50%; background:rgba(255,255,255,.08);
+  border:1.5px solid rgba(255,213,79,.5); display:flex; align-items:center; justify-content:center;
+  z-index:2; transition:.35s;
+}
+.video-card:hover .play-ic{background:var(--primary); transform:scale(1.12); box-shadow:0 0 30px rgba(255,107,107,.6);}
+.video-body{padding:20px 22px;}
+.video-body h4{font-family:var(--font-sub); font-size:1rem; margin-bottom:6px; font-weight:600;}
+.video-body p{font-size:.82rem; color:var(--text-dim); margin-bottom:14px; line-height:1.5;}
+.watch-link{font-size:.78rem; font-family:var(--font-sub); color:var(--accent); display:flex; align-items:center; gap:6px; font-weight:600;}
+
+/* CAROUSEL */
+.carousel-wrap{
+    width:100%;
+    overflow:hidden;
+    position:relative;
+    z-index:1;
+    margin:top 60px;
+    mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+}
+.carousel-track{display:flex; gap:20px; width:max-content; animation:scrollLeft 32s linear infinite;}
+.carousel-wrap:hover .carousel-track{animation-play-state:paused;}
+@keyframes scrollLeft{0%{transform:translateX(0);} 100%{transform:translateX(-50%);}}
+.c-card{
+  width:280px;
+  flex-shrink:0;
+  border-radius:18px;
+  overflow:hidden;
+  background:var(--bg2);
+  border:1px solid rgba(255,255,255,.06);
+  transition:.35s;
+  cursor:pointer;
+  position:relative;
+}
+.c-card:hover{
+  border-color:rgba(255,213,79,.5);
+  box-shadow:0 0 26px rgba(255,213,79,.2);
+  transform:none;
+}
+.c-thumb{aspect-ratio:16/9; background:linear-gradient(135deg,#231416,#1a1a1d); display:flex; align-items:center; justify-content:center; position:relative;}
+.c-body{padding:14px 16px;}
+.c-body h5{font-family:var(--font-sub); font-size:.88rem; margin-bottom:8px;}
+.c-body a{font-size:.72rem; color:var(--accent); font-family:var(--font-sub); font-weight:600; text-decoration:none;}
+.carousel-wrap,
+.carousel-track,
+.c-card{
+    isolation:isolate;
+}
+.video-thumb img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.c-thumb img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    position:absolute;
+    inset:0;
+}
+
+.c-thumb .play-ic{
+    position:relative;
+    z-index:2;
+}
+
+/* MISSION */
+#mission{text-align:center;}
+.mission-text{
+  font-family:var(--font-sub); font-weight:600; font-size:clamp(1.5rem,3.4vw,2.6rem);
+  line-height:1.4; max-width:920px; margin:34px auto 0;
+}
+
+/* TIMELINE */
+.timeline{max-width:720px; margin:0 auto; position:relative; padding-left:36px;}
+.timeline::before{
+  content:''; position:absolute; left:6px; top:6px; bottom:6px; width:2px;
+  background:linear-gradient(var(--primary),var(--accent),var(--primary));
+}
+.tl-item{position:relative; padding-bottom:52px;}
+.tl-item:last-child{padding-bottom:0;}
+.tl-node{
+  position:absolute; left:-36px; top:2px; width:14px; height:14px; border-radius:50%;
+  background:var(--bg); border:2px solid var(--accent);
+  box-shadow:0 0 0 4px rgba(255,213,79,.12), 0 0 16px rgba(255,213,79,.5);
+}
+.tl-year{font-family:var(--font-num); color:var(--accent); font-weight:700; font-size:.85rem; letter-spacing:.1em; margin-bottom:6px;}
+.tl-item h4{font-family:var(--font-sub); font-size:1.2rem; margin-bottom:6px;}
+.tl-item p{color:var(--text-dim); font-size:.88rem; max-width:480px;}
+
+/* TESTIMONIALS */
+#testimonials{overflow:hidden;}
+.t-track{display:flex; transition:transform .6s cubic-bezier(.65,0,.35,1);}
+.t-slide{min-width:100%; display:flex; justify-content:center; padding:0 4px;}
+.t-card{
+  max-width:640px; padding:44px; border-radius:24px; text-align:center;
+}
+.t-quote{font-size:1.15rem; line-height:1.7; font-weight:300; margin-bottom:26px;}
+.t-author{font-family:var(--font-sub); font-weight:700; color:var(--accent);}
+.t-role{font-size:.78rem; color:var(--text-dim); margin-top:2px;}
+.t-dots{display:flex; justify-content:center; gap:10px; margin-top:30px;}
+.t-dot{width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,.2); cursor:pointer; transition:.3s;}
+.t-dot.active{background:var(--accent); box-shadow:0 0 10px var(--accent); width:26px; border-radius:5px;}
+
+/* CONTACT */
+.contact-grid{display:grid; grid-template-columns:1.1fr 1fr; gap:50px;}
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr;}}
+.form-card{padding:40px; border-radius:24px;}
+.field{position:relative; margin-bottom:22px;}
+.field input, .field textarea{
+  width:100%; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.1);
+  border-radius:12px; padding:16px 16px; color:var(--text); font-family:var(--font-body); font-size:.9rem;
+  outline:none; transition:.3s; resize:none;
+}
+.field textarea{min-height:120px;}
+.field input:focus, .field textarea:focus{
+  border-color:var(--accent); box-shadow:0 0 0 3px rgba(255,213,79,.12), 0 0 22px rgba(255,213,79,.15);
+  background:rgba(255,213,79,.02);
+}
+.field label{
+  position:absolute; left:16px; top:16px; color:var(--text-dim); font-size:.88rem; pointer-events:none; transition:.25s;
+  background:var(--bg2); padding:0 6px;
+}
+.field input:focus + label, .field input:not(:placeholder-shown) + label,
+.field textarea:focus + label, .field textarea:not(:placeholder-shown) + label{
+  top:-9px; font-size:.72rem; color:var(--accent);
+}
+.submit-btn{
+  width:100%; padding:16px; border-radius:12px; border:none; cursor:pointer;
+  font-family:var(--font-sub); font-weight:700; letter-spacing:.03em; font-size:.9rem;
+  background:linear-gradient(120deg,var(--primary),var(--accent)); color:#0F0F10;
+  transition:.35s; position:relative; overflow:hidden;
+}
+.submit-btn:hover{box-shadow:0 0 30px rgba(255,107,107,.45); transform:translateY(-2px);}
+.map-placeholder{
+  border-radius:24px; height:100%; min-height:260px; display:flex; align-items:center; justify-content:center;
+  flex-direction:column; gap:10px; color:var(--text-dim); font-family:var(--font-sub); font-size:.85rem;
+  background:repeating-linear-gradient(135deg, rgba(255,255,255,.02) 0 2px, transparent 2px 14px), var(--bg2);
+  border:1px dashed rgba(255,255,255,.12);
+}
+.contact-info-item{display:flex; gap:14px; align-items:flex-start; margin-bottom:22px;}
+.contact-info-item .ic-box{
+  width:40px; height:40px; border-radius:10px; flex-shrink:0; display:flex; align-items:center; justify-content:center;
+  background:rgba(255,107,107,.1); border:1px solid rgba(255,213,79,.25); color:var(--accent);
+}
+.contact-info-item h5{font-family:var(--font-sub); font-size:.92rem; margin-bottom:3px;}
+.contact-info-item p{font-size:.82rem; color:var(--text-dim);}
+
+/* FOOTER */
+footer{
+  padding:70px 6vw 30px; background:var(--bg2); border-top:1px solid rgba(255,255,255,.06); position:relative;
+}
+.footer-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:50px; margin-bottom:50px;}
+@media(max-width:768px){.footer-grid{grid-template-columns:1fr; gap:36px;}}
+.footer-grid h6{font-family:var(--font-sub); font-size:.85rem; letter-spacing:.1em; text-transform:uppercase; color:var(--accent); margin-bottom:18px;}
+.footer-grid ul{list-style:none;}
+.footer-grid ul li{margin-bottom:11px;}
+.footer-grid ul a{color:var(--text-dim); text-decoration:none; font-size:.88rem; transition:.25s;}
+.footer-grid ul a:hover{color:var(--accent); padding-left:4px;}
+.social-row{display:flex; gap:12px; margin-top:18px;}
+.social-btn{
+  width:38px; height:38px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+  border:1px solid rgba(255,255,255,.12); color:var(--text-dim); transition:.3s; text-decoration:none;
+}
+.social-btn:hover{border-color:var(--primary); color:var(--accent); box-shadow:0 0 18px rgba(255,107,107,.35); transform:translateY(-3px);}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.06); padding-top:26px; display:flex; justify-content:space-between;
+  flex-wrap:wrap; gap:14px; font-size:.78rem; color:var(--text-dim); font-family:var(--font-sub);
+}
+.glow-divider{height:1px; width:100%; background:linear-gradient(90deg,transparent,rgba(255,107,107,.5),rgba(255,213,79,.5),transparent); margin-bottom:50px;}
+
+/* FLOATING YT BUTTON */
+#ytFloat{
+  position:fixed; bottom:26px; right:26px; z-index:90; width:62px; height:62px; border-radius:50%;
+  background:linear-gradient(135deg,#FF6B6B,#FF3B30); display:flex; align-items:center; justify-content:center;
+  cursor:pointer; text-decoration:none; box-shadow:0 0 0 0 rgba(255,107,107,.6);
+  animation:floatBtn 3.4s ease-in-out infinite, pulseRing 2.6s ease-in-out infinite;
+}
+@keyframes floatBtn{0%,100%{transform:translateY(0);} 50%{transform:translateY(-8px);}}
+@keyframes pulseRing{
+  0%{box-shadow:0 0 0 0 rgba(255,107,107,.55);}
+  70%{box-shadow:0 0 0 18px rgba(255,107,107,0);}
+  100%{box-shadow:0 0 0 0 rgba(255,107,107,0);}
+}
+#ytFloat:hover{transform:scale(1.12);}
+#ytFloat svg{width:26px; height:26px; fill:#fff;}
+@media(max-width:640px){#ytFloat{width:52px; height:52px; bottom:18px; right:18px;}}
+
+/* reveal utility */
+.reveal {
+    opacity:1 !important;
+    transform:none !important;
+}
+
+/* particles canvas backgrounds for sections */
+.section-canvas{position:absolute; inset:0; z-index:0; opacity:.5; pointer-events:none;}
+.section > .inner{position:relative; z-index:2;}
+
+.card-tilt{transition:transform .3s ease;}
+
+.card-tilt{transition:transform .3s ease;}
+
+
+/* ADD THIS HERE */
+footer .logo-mark img{
+    width:80px;
+    height:auto;
+}
+
+@media(max-width:640px){
+    footer .logo-mark img{
+        width:130px;
+    }
+}
+/* COMMUNITY VOICES AUTO CAROUSEL */
+
+#testimonials{
+    overflow:hidden;
+}
+
+
+.testimonial-carousel{
+    width:100%;
+    overflow:hidden;
+    mask-image:linear-gradient(
+        90deg,
+        transparent,
+        #000 8%,
+        #000 92%,
+        transparent
+    );
+}
+
+
+.testimonial-track{
+    display:flex;
+    gap:30px;
+    width:max-content;
+    animation:testimonialScroll 30s linear infinite;
+}
+
+
+.testimonial-carousel:hover .testimonial-track{
+    animation-play-state:paused;
+}
+
+
+.testimonial-track .t-card{
+    width:420px;
+    flex-shrink:0;
+    padding:40px;
+}
+
+
+@keyframes testimonialScroll{
+
+    from{
+        transform:translateX(0);
+    }
+
+    to{
+        transform:translateX(-50%);
+    }
+
+}
+
+
+@media(max-width:640px){
+
+.testimonial-track .t-card{
+    width:300px;
+    padding:30px;
+}
+
+}
+</style>
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#hero" class="logo-mark">
+    <img src="https://i.ibb.co/SXM73Nkq/AGS-TRRUE-MEDIA-removebg-preview.png" alt="AGS TRRUE MEDIA Logo">
+  </a>
+  <div class="nav-links">
+    <a href="#hero">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#videos">Videos</a>
+    <a href="#mission">Mission</a>
+    <a href="#stats">Statistics</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div id="menuBtn" onclick="document.getElementById('mobileMenu').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div id="mobileMenu">
+  <a href="#hero" onclick="closeMenu()">Home</a>
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#services" onclick="closeMenu()">Services</a>
+  <a href="#videos" onclick="closeMenu()">Videos</a>
+  <a href="#mission" onclick="closeMenu()">Mission</a>
+  <a href="#stats" onclick="closeMenu()">Statistics</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <canvas id="heroCanvas"></canvas>
+  <div class="blob" id="blob1" style="width:480px; height:480px; background:var(--primary); top:-10%; left:-8%;"></div>
+  <div class="blob" id="blob2" style="width:420px; height:420px; background:var(--accent); bottom:-14%; right:-6%;"></div>
+  <div class="blob" id="blob3" style="width:300px; height:300px; background:var(--secondary); top:40%; left:60%;"></div>
+
+  <div class="hero-content">
+    <span class="hero-tag reveal">Est. 2018 · Chennai, India</span>
+    <h1 class="hero-title reveal">AGS <span class="grad-text">TRRUE</span> MEDIA</h1>
+    <p class="hero-sub reveal">The Voice of Common People</p>
+    <div id="typewrap" class="reveal">We cover <span class="grad-text" id="typeTarget">Engineering</span></div>
+    <div class="waveform reveal" id="heroWave" aria-hidden="true"></div>
+    <div class="btn-row reveal" style="margin-top:30px;">
+      <a href="https://www.youtube.com/@agstruemedia" target="_blank" rel="noopener" class="btn btn-primary">
+        Explore Channel
+      </a>
+      <a href="#videos" class="btn btn-outline">Watch Videos</a>
+    </div>
+  </div>
+
+  <div class="scroll-cue"><span>Scroll</span><div class="scroll-line"></div></div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="inner">
+    <div class="about-grid">
+      <div>
+        <span class="eyebrow reveal">Who We Are</span>
+        <h2 class="sec-title reveal">Reliable knowledge for the <span class="grad-text">next generation.</span></h2>
+        <p class="reveal" style="margin-top:22px; color:var(--text-dim); line-height:1.8; font-size:.98rem;">
+          Welcome to AGS TRRUE MEDIA. We are dedicated to guiding young engineers, graduates, entrepreneurs and
+          aspiring professionals through reliable knowledge, practical engineering education, technology awareness,
+          and career guidance — with accurate, ethical, and practical information at the core of everything we publish.
+        </p>
+      </div>
+      <div class="glass about-card reveal">
+        <h3 class="font-sub" style="font-size:1.1rem; color:var(--accent); margin-bottom:6px;">Our Focus Areas</h3>
+        <p style="color:var(--text-dim); font-size:.85rem;">Fourteen beats, one mission — inform the community honestly.</p>
+        <div class="about-focus">
+          <div class="focus-pill"><span class="ic"></span>Oil & Gas Industry</div>
+          <div class="focus-pill"><span class="ic"></span>Industrial Projects</div>
+          <div class="focus-pill"><span class="ic"></span>Infrastructure Projects</div>
+          <div class="focus-pill"><span class="ic"></span>Engineering Design</div>
+          <div class="focus-pill"><span class="ic"></span>Latest Technology</div>
+          <div class="focus-pill"><span class="ic"></span>AI Innovation</div>
+          <div class="focus-pill"><span class="ic"></span>Entrepreneurship</div>
+          <div class="focus-pill"><span class="ic"></span>Government Projects</div>
+          <div class="focus-pill"><span class="ic"></span>Public Policies</div>
+          <div class="focus-pill"><span class="ic"></span>Technical Awareness</div>
+          <div class="focus-pill"><span class="ic"></span>News Interviews</div>
+          <div class="focus-pill"><span class="ic"></span>Local Reporters</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats" class="section">
+  <div class="inner">
+    <div class="stats-grid">
+      <div class="reveal">
+        <div class="stat-num" data-count="38.3" data-suffix="K+">0</div>
+        <div class="stat-label">Subscribers</div>
+      </div>
+      <div class="reveal">
+        <div class="stat-num" data-count="30" data-suffix="+">0</div>
+        <div class="stat-label">Videos</div>
+      </div>
+      <div class="reveal">
+        <div class="stat-num" data-count="2.4" data-suffix="M+">0</div>
+        <div class="stat-label">Views</div>
+      </div>
+      <div class="reveal">
+        <div class="stat-num" data-count="2018" data-suffix="">0</div>
+        <div class="stat-label">Established</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="section">
+  <div class="inner">
+    <div class="sec-head">
+      <span class="eyebrow reveal">What We Do</span>
+      <h2 class="sec-title reveal">Built for engineers, reporters <span class="grad-text">and the public.</span></h2>
+    </div>
+    <div class="services-grid" id="servicesGrid"></div>
+  </div>
+</section>
+
+<!-- VIDEOS -->
+<section id="videos" class="section">
+  <div class="inner">
+    <div class="sec-head">
+      <span class="eyebrow reveal">Featured Videos</span>
+      <h2 class="sec-title reveal">Straight from <span class="grad-text">the channel.</span></h2>
+    </div>
+    <div class="video-grid" id="videoGrid"></div>
+
+    <div class="carousel-wrap">
+      <div class="carousel-track" id="carouselTrack"></div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section id="mission" class="section">
+  <div class="inner">
+    <span class="eyebrow reveal" style="justify-content:center;">Our Mission</span>
+    <p class="mission-text reveal">
+      To educate, empower, and inspire the next generation of
+      <span class="grad-text">engineers, entrepreneurs, and leaders</span>
+      through reliable knowledge and ethical guidance to the Tamil community.
+    </p>
+    <div class="waveform reveal" style="margin-top:44px;" id="missionWave"></div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline-sec" class="section">
+  <div class="inner">
+    <div class="sec-head" style="margin-left:auto; margin-right:auto; text-align:center;">
+      <span class="eyebrow reveal" style="justify-content:center;">Our Journey</span>
+      <h2 class="sec-title reveal">From one voice to <span class="grad-text">a movement.</span></h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-node"></div>
+        <div class="tl-year">2018</div>
+        <h4>Channel Started</h4>
+        <p>AGS TRRUE MEDIA is founded in Chennai with a simple goal — give common people a reliable voice.</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-node"></div>
+        <div class="tl-year">Growing</div>
+        <h4>Growing Community</h4>
+        <p>A loyal audience of engineers and graduates forms around honest, practical reporting.</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-node"></div>
+        <div class="tl-year">Expanding</div>
+        <h4>Technology Awareness</h4>
+        <p>Coverage widens into AI, innovation, and emerging technology for a broader audience.</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-node"></div>
+        <div class="tl-year">Deepening</div>
+        <h4>Engineering Guidance</h4>
+        <p>Dedicated career and design-guidance content for engineering students and professionals.</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-node"></div>
+        <div class="tl-year">Ahead</div>
+        <h4>Future Expansion</h4>
+        <p>New formats, more local reporters, and deeper public-policy coverage on the horizon.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="section">
+  <div class="inner">
+
+    <div class="sec-head" style="margin-left:auto; margin-right:auto; text-align:center;">
+      <span class="eyebrow reveal" style="justify-content:center;">Community Voices</span>
+      <h2 class="sec-title reveal">
+        What viewers <span class="grad-text">are saying.</span>
+      </h2>
+    </div>
+
+
+    <div class="testimonial-carousel">
+
+      <div class="testimonial-track" id="testimonialTrack">
+
+        <div class="glass t-card neon-border">
+          <p class="t-quote">
+          "AGS TRRUE MEDIA explains complex engineering concepts in a way every graduate can actually use. Their career guidance videos changed how I approached my first job search."
+          </p>
+          <div class="t-author">Karthik R.</div>
+          <div class="t-role">Mechanical Engineering Graduate</div>
+        </div>
+
+
+        <div class="glass t-card neon-border">
+          <p class="t-quote">
+          "Honest, practical, and always well researched. The interviews with industry professionals gave me real clarity on the oil and gas sector before I chose my specialization."
+          </p>
+          <div class="t-author">Priya S.</div>
+          <div class="t-role">Final Year Student</div>
+        </div>
+
+
+        <div class="glass t-card neon-border">
+          <p class="t-quote">
+          "This channel treats its audience with respect — no sensationalism, just accurate technology and policy reporting that the local community can trust."
+          </p>
+          <div class="t-author">Arun M.</div>
+          <div class="t-role">Local Business Owner</div>
+        </div>
+
+
+        <!-- Duplicate cards for infinite loop -->
+
+        <div class="glass t-card neon-border">
+          <p class="t-quote">
+          "AGS TRRUE MEDIA explains complex engineering concepts in a way every graduate can actually use."
+          </p>
+          <div class="t-author">Linchu L.</div>
+          <div class="t-role">Mechanical Engineering Graduate</div>
+        </div>
+
+
+        <div class="glass t-card neon-border">
+          <p class="t-quote">
+          "Honest, practical, and always well researched."
+          </p>
+          <div class="t-author">Keerthiga S.</div>
+          <div class="t-role">Final Year Student</div>
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <div class="inner">
+    <div class="sec-head">
+      <span class="eyebrow reveal">Get In Touch</span>
+      <h2 class="sec-title reveal">Have a story? <span class="grad-text">Let's talk.</span></h2>
+    </div>
+    <div class="contact-grid">
+      <div class="glass form-card reveal">
+        <form id="contactForm" onsubmit="return handleSubmit(event)">
+          <div class="field">
+            <input type="text" id="cname" placeholder=" " required>
+            <label for="cname">Name</label>
+          </div>
+          <div class="field">
+            <input type="email" id="cemail" placeholder=" " required>
+            <label for="cemail">Email</label>
+          </div>
+          <div class="field">
+            <input type="text" id="csubject" placeholder=" " required>
+            <label for="csubject">Subject</label>
+          </div>
+          <div class="field">
+            <textarea id="cmessage" placeholder=" " required></textarea>
+            <label for="cmessage">Message</label>
+          </div>
+          <button type="submit" class="submit-btn" id="submitBtn">Send Message</button>
+        </form>
+      </div>
+      <div class="reveal" style="display:flex; flex-direction:column; gap:26px;">
+        <div>
+          <div class="contact-info-item">
+            <div class="ic-box">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div><h5>Location</h5>
+             <p>
+<a href="https://www.google.com/maps/search/?api=1&query=VAMSI+House,+Plot+No.+24,+4th+Cross+Street,+Thanikachalam+Nagar,+Block+B,+Siraman+Salai,+Ponniammanmedu,+Chennai,+Tamil+Nadu+600110,+India"
+target="_blank"
+style="color:inherit;text-decoration:none;">
+VAMSI House, Plot No. 24,<br>
+4th Cross Street,<br>
+Thanikachalam Nagar, Block B,<br>
+Siraman Salai, Ponniammanmedu,<br>
+Chennai, Tamil Nadu 600110, India
+</a>
+</p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="ic-box">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 7l-9.5 6L4 7"/><rect x="3" y="5" width="18" height="14" rx="2"/></svg>
+            </div>
+            <div><h5>Established</h5><p>May 2018</p></div>
+          </div>
+          <div class="contact-info-item">
+            <div class="ic-box">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 8.5l-10 6L2 8.5"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+            </div>
+           <div>
+    <h5>YouTube</h5>
+    <p>
+        <a href="https://www.youtube.com/@agstruemedia"
+           target="_blank"
+           style="color:inherit;text-decoration:none;">
+            @agstruemedia
+        </a>
+    </p>
+</div>
+          </div>
+        </div>
+        <div class="map-placeholder">
+  <iframe
+    src="https://www.google.com/maps?q=VAMSI+House,+Plot+No.+24,+4th+Cross+Street,+Thanikachalam+Nagar,+Block+B,+Siraman+Salai,+Ponniammanmedu,+Chennai,+Tamil+Nadu+600110&output=embed"
+    width="100%"
+    height="100%"
+    style="border:0;"
+    loading="lazy"
+    allowfullscreen>
+  </iframe>
+</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="glow-divider"></div>
+  <div class="footer-grid">
+    <div>
+      <div class="logo-mark" style="margin-bottom:14px;">
+  <img src="https://i.ibb.co/HpGZbSq0/Untitled-design-1.png" alt="Untitled design (1)" border="0" alt="AGS TRRUE MEDIA Logo">
+</div>
+      <p style="color:var(--text-dim); font-size:.88rem; max-width:320px; line-height:1.7;">The Voice of Common People. Reliable engineering, technology and career guidance from Chennai, India — since 2018.</p>
+      <div class="social-row">
+        <a class="social-btn" href="https://www.youtube.com/@agstruemedia" target="_blank" rel="noopener" aria-label="YouTube">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.5 6.2a2.8 2.8 0 0 0-2-2C18.8 3.7 12 3.7 12 3.7s-6.8 0-8.5.5a2.8 2.8 0 0 0-2 2A29 29 0 0 0 1 12a29 29 0 0 0 .5 5.8 2.8 2.8 0 0 0 2 2c1.7.5 8.5.5 8.5.5s6.8 0 8.5-.5a2.8 2.8 0 0 0 2-2A29 29 0 0 0 23 12a29 29 0 0 0-.5-5.8zM9.8 15.5V8.5l6 3.5-6 3.5z"/></svg>
+        </a>
+        <a class="social-btn" href="https://in.linkedin.com/in/agsatyan" target="_blank" rel="noopener" aria-label="LinkedIn">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M4.98 3.5C4.98 4.6 4.1 5.5 3 5.5S1.02 4.6 1.02 3.5 1.9 1.5 3 1.5s1.98.9 1.98 2zM1.5 8h3V22h-3V8zm7 0h2.88v1.91h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.59V22h-3v-7.11c0-1.7-.03-3.89-2.37-3.89-2.38 0-2.74 1.85-2.74 3.76V22h-3V8z"/>
+  </svg>
+</a>
+
+<a class="social-btn" href="https://www.facebook.com/AGSENGINEERS/" target="_blank" rel="noopener" aria-label="Facebook">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+  </svg>
+</a>
+      </div>
+    </div>
+    <div>
+      <h6>Quick Links</h6>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#videos">Videos</a></li>
+        <li><a href="#mission">Mission</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h6>Connect</h6>
+      <ul>
+        <li><a href="https://www.youtube.com/@agstruemedia" target="_blank" rel="noopener">YouTube Channel</a></li>
+        <li><a href="#stats">Statistics</a></li>
+        <li><a href="#contact">Get in Touch</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 AGS TRRUE MEDIA. All rights reserved.</span>
+    <span>The Voice of Common People · Chennai, India</span>
+  </div>
+</footer>
+
+<!-- FLOATING YOUTUBE BUTTON -->
+<a id="ytFloat" href="https://www.youtube.com/@agstruemedia" target="_blank" rel="noopener" aria-label="Watch on YouTube">
+  <svg viewBox="0 0 24 24"><path d="M22.5 6.2a2.8 2.8 0 0 0-2-2C18.8 3.7 12 3.7 12 3.7s-6.8 0-8.5.5a2.8 2.8 0 0 0-2 2A29 29 0 0 0 1 12a29 29 0 0 0 .5 5.8 2.8 2.8 0 0 0 2 2c1.7.5 8.5.5 8.5.5s6.8 0 8.5-.5a2.8 2.8 0 0 0 2-2A29 29 0 0 0 23 12a29 29 0 0 0-.5-5.8zM9.8 15.5V8.5l6 3.5-6 3.5z"/></svg>
+</a>
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+function closeMenu(){document.getElementById('mobileMenu').classList.remove('open');}
+
+/* ---------- NAV SHRINK ---------- */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', ()=>{
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+/* ---------- WAVEFORM BARS ---------- */
+function buildWave(el, count){
+  for(let i=0;i<count;i++){
+    const s = document.createElement('span');
+    s.style.animationDelay = (i*0.07)+'s';
+    el.appendChild(s);
+  }
+}
+buildWave(document.getElementById('heroWave'), 44);
+buildWave(document.getElementById('missionWave'), 44);
+
+/* ---------- TYPING ANIMATION ---------- */
+const words = ["Engineering","Technology","Innovation","News","Awareness","Career Guidance","AI","Entrepreneurship"];
+const typeEl = document.getElementById('typeTarget');
+let wi=0, ci=0, deleting=false;
+function typeLoop(){
+  const word = words[wi];
+  if(!deleting){
+    ci++;
+    typeEl.textContent = word.slice(0,ci);
+    if(ci===word.length){ deleting=true; setTimeout(typeLoop, 1300); return; }
+  } else {
+    ci--;
+    typeEl.textContent = word.slice(0,ci);
+    if(ci===0){ deleting=false; wi=(wi+1)%words.length; }
+  }
+  setTimeout(typeLoop, deleting?45:85);
+}
+typeLoop();
+
+/* ---------- HERO CANVAS PARTICLES + MOUSE SPOTLIGHT ---------- */
+const canvas = document.getElementById('heroCanvas');
+const ctx = canvas.getContext('2d');
+let W,H, particles=[], mouse={x:-999,y:-999};
+function resize(){
+  W = canvas.width = canvas.offsetWidth;
+  H = canvas.height = canvas.offsetHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+function initParticles(){
+  particles = [];
+  const count = window.innerWidth < 700 ? 40 : 85;
+  for(let i=0;i<count;i++){
+    particles.push({
+      x:Math.random()*W, y:Math.random()*H,
+      r:Math.random()*1.8+0.6,
+      vx:(Math.random()-0.5)*0.25, vy:(Math.random()-0.5)*0.25,
+      hue: Math.random()>0.5? '255,107,107' : '255,213,79',
+      alpha: Math.random()*0.5+0.2
+    });
+  }
+}
+initParticles();
+
+canvas.addEventListener('mousemove', e=>{
+  const rect = canvas.getBoundingClientRect();
+  mouse.x = e.clientX - rect.left;
+  mouse.y = e.clientY - rect.top;
+});
+canvas.addEventListener('mouseleave', ()=>{mouse.x=-999; mouse.y=-999;});
+
+function animate(){
+  ctx.clearRect(0,0,W,H);
+
+  // mouse spotlight
+  if(mouse.x>0){
+    const grad = ctx.createRadialGradient(mouse.x,mouse.y,0,mouse.x,mouse.y,220);
+    grad.addColorStop(0,'rgba(255,107,107,0.10)');
+    grad.addColorStop(1,'rgba(255,107,107,0)');
+    ctx.fillStyle = grad;
+    ctx.beginPath(); ctx.arc(mouse.x,mouse.y,220,0,Math.PI*2); ctx.fill();
+  }
+
+  particles.forEach(p=>{
+    p.x+=p.vx; p.y+=p.vy;
+    if(p.x<0)p.x=W; if(p.x>W)p.x=0;
+    if(p.y<0)p.y=H; if(p.y>H)p.y=0;
+
+    // slight attraction toward mouse for spotlight feel
+    const dx = mouse.x-p.x, dy=mouse.y-p.y;
+    const dist = Math.sqrt(dx*dx+dy*dy);
+    let alpha = p.alpha;
+    if(dist<160){ alpha = Math.min(1, p.alpha + (1-dist/160)*0.6); }
+
+    ctx.beginPath();
+    ctx.fillStyle = `rgba(${p.hue},${alpha})`;
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fill();
+  });
+  requestAnimationFrame(animate);
+}
+animate();
+
+/* blobs follow mouse subtly */
+const blob1=document.getElementById('blob1'), blob2=document.getElementById('blob2'), blob3=document.getElementById('blob3');
+document.getElementById('hero').addEventListener('mousemove', e=>{
+  const r = e.currentTarget.getBoundingClientRect();
+  const px = (e.clientX-r.left)/r.width - 0.5;
+  const py = (e.clientY-r.top)/r.height - 0.5;
+  gsap.to(blob1,{x:px*40, y:py*40, duration:1.2, ease:'power2.out'});
+  gsap.to(blob2,{x:-px*35, y:-py*35, duration:1.2, ease:'power2.out'});
+  gsap.to(blob3,{x:px*25, y:-py*25, duration:1.2, ease:'power2.out'});
+});
+gsap.to([blob1,blob2,blob3],{y:'+=25', duration:4, ease:'sine.inOut', yoyo:true, repeat:-1, stagger:0.6});
+
+/* ---------- HERO ENTRANCE ---------- */
+gsap.timeline({defaults:{ease:'power3.out'}})
+  .to('#hero .hero-tag',{opacity:1,y:0,duration:.7})
+  .to('#hero .hero-title',{opacity:1,y:0,duration:.9},'-=.4')
+  .to('#hero .hero-sub',{opacity:1,y:0,duration:.7},'-=.5')
+  .to('#hero #typewrap',{opacity:1,y:0,duration:.7},'-=.4')
+  .to('#hero #heroWave',{opacity:1,y:0,duration:.7},'-=.4')
+  .to('#hero .btn-row',{opacity:1,y:0,duration:.7},'-=.3');
+
+/* ---------- SCROLL REVEALS ---------- */
+document.querySelectorAll('.reveal').forEach(el=>{
+  if(el.closest('#hero')) return; // hero handled by timeline above
+  gsap.to(el,{
+    opacity:1, y:0, duration:.9, ease:'power3.out',
+    scrollTrigger:{trigger:el, start:'top 88%'}
+  });
+});
+
+/* ---------- COUNTERS ---------- */
+document.querySelectorAll('.stat-num').forEach(el=>{
+  const target = parseFloat(el.dataset.count);
+  const suffix = el.dataset.suffix || '';
+  const isDecimal = String(el.dataset.count).includes('.');
+  ScrollTrigger.create({
+    trigger: el, start:'top 90%', once:true,
+    onEnter: ()=>{
+      let obj={val:0};
+      gsap.to(obj,{
+        val:target, duration:2, ease:'power2.out',
+        onUpdate:()=>{ el.textContent = (isDecimal? obj.val.toFixed(1): Math.floor(obj.val)) + suffix; }
+      });
+    }
+  });
+});
+
+/* ---------- SERVICES DATA ---------- */
+const serviceIcons = {
+  ad:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M2 10h20"/></svg>',
+  eng:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1 1.55V21a2 2 0 0 1-4 0v-.09a1.7 1.7 0 0 0-1-1.55 1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.7 1.7 0 0 0 .34-1.87 1.7 1.7 0 0 0-1.55-1H3a2 2 0 0 1 0-4h.09a1.7 1.7 0 0 0 1.55-1 1.7 1.7 0 0 0-.34-1.87l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.7 1.7 0 0 0 1.87.34H9a1.7 1.7 0 0 0 1-1.55V3a2 2 0 0 1 4 0v.09a1.7 1.7 0 0 0 1 1.55 1.7 1.7 0 0 0 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.7 1.7 0 0 0-.34 1.87V9a1.7 1.7 0 0 0 1.55 1H21a2 2 0 0 1 0 4h-.09a1.7 1.7 0 0 0-1.55 1z"/></svg>',
+  news:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8M18 18h-8M18 10h-8"/></svg>',
+  reporter:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.6 7.6"/><circle cx="11" cy="11" r="2"/></svg>',
+  interview:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4M8 23h8"/></svg>',
+  tech:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"/></svg>',
+  career:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>',
+  gov:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg>',
+  ai:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="3"/><circle cx="9" cy="9" r="1"/><circle cx="15" cy="9" r="1"/><path d="M9 15c1 1 5 1 6 0"/></svg>',
+  public:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/></svg>'
+};
+const services = [
+  {ic:'ad', t:'Advertisement Promotions', d:'Reach an engaged, engineering-minded audience with sponsored features and brand promotions.'},
+  {ic:'eng', t:'Engineering Awareness', d:'Practical breakdowns of engineering design, industrial projects, and infrastructure work.'},
+  {ic:'news', t:'Industry News', d:'Timely, accurate reporting on oil & gas, industrial, and infrastructure developments.'},
+  {ic:'reporter', t:'Local Reporters', d:'On-the-ground coverage from correspondents embedded in the local community.'},
+  {ic:'interview', t:'Interviews', d:'Conversations with industry professionals, entrepreneurs, and policymakers.'},
+  {ic:'tech', t:'Technology Updates', d:'Clear, jargon-free coverage of the latest tools, platforms, and technical trends.'},
+  {ic:'career', t:'Career Guidance', d:'Actionable advice to help graduates and professionals navigate their careers.'},
+  {ic:'gov', t:'Government Project Awareness', d:'Public breakdowns of government infrastructure and policy initiatives.'},
+  {ic:'ai', t:'AI & Innovation', d:'Accessible reporting on artificial intelligence and emerging innovation.'},
+  {ic:'public', t:'Public Awareness Campaigns', d:'Community-focused campaigns that inform and empower everyday citizens.'}
+];
+const grid = document.getElementById('servicesGrid');
+
+if(grid){
+services.forEach((s,i)=>{
+  const card = document.createElement('div');
+  card.className='service-card reveal';
+  card.innerHTML = `<div class="service-ic">${serviceIcons[s.ic]}</div><h3>${s.t}</h3><p>${s.d}</p>`;
+  grid.appendChild(card);
+});
+}
+
+/* card tilt on mousemove for services */
+document.addEventListener('mousemove', e=>{
+  document.querySelectorAll('.service-card').forEach(card=>{
+    const r = card.getBoundingClientRect();
+    if(e.clientX>r.left && e.clientX<r.right && e.clientY>r.top && e.clientY<r.bottom){
+      const px = (e.clientX-r.left)/r.width - 0.5;
+      const py = (e.clientY-r.top)/r.height - 0.5;
+      card.style.transform = `translateY(-10px) scale(1.015) rotateX(${py*-6}deg) rotateY(${px*6}deg)`;
+    }
+  });
+});
+document.querySelectorAll('.service-card').forEach(c=>{
+  c.addEventListener('mouseleave', ()=>{ c.style.transform=''; });
+});
+
+/* ---------- VIDEOS DATA (placeholders) ---------- */
+const featured = [
+{
+  t:'GET Fresh engineers job guide',
+  d:'Mentoring the Fresh engineers for the core engineering job opportunity',
+  img:'https://img.youtube.com/vi/Wk6ZMkWalms/maxresdefault.jpg',
+  url:'https://youtu.be/Wk6ZMkWalms?si=HEnK9CeOSIyGT5wQ'
+},
+{
+  t:'What is Project Management in the Oil and Gas Industry',
+  d:' what Project Management truly means and how it plays a vital role in the success of major Oil & Gas projects worldwide.',
+  img:'https://img.youtube.com/vi/hcB7lCO5QH0/maxresdefault.jpg',
+  url:'https://youtu.be/hcB7lCO5QH0?si=edRd30vmgSl8n61W'
+},
+{
+  t:'Your first job is not just about the salary',
+  d:'Your first job is the stepping stone that builds your skills, confidence, and future career success..',
+  img:'https://img.youtube.com/vi/5MIEmXyfd_4/maxresdefault.jpg',
+  url:'https://youtu.be/5MIEmXyfd_4?si=mS-GfmjGEbZPaGe9'
+}
+];
+const vGrid = document.getElementById('videoGrid');
+featured.forEach(v=>{
+  const a = document.createElement('a');
+  a.href = v.url;
+  a.target = '_blank'; a.rel='noopener';
+  a.className='video-card reveal';
+  a.innerHTML = `
+    <div class="video-thumb">
+  <img src="${v.img}" alt="${v.t}">
+  <div class="play-ic">${playSvg()}</div>
+</div>
+    <div class="video-body">
+      <h4>${v.t}</h4>
+      <p>${v.d}</p>
+      <span class="watch-link">Watch on YouTube ${arrowSvg()}</span>
+    </div>`;
+  vGrid.appendChild(a);
+});
+function playSvg(){return '<svg width="20" height="20" viewBox="0 0 24 24" fill="#FFE082"><path d="M8 5v14l11-7z"/></svg>';}
+function arrowSvg(){return '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';}
+
+/* ---------- CAROUSEL DATA (duplicated for seamless loop) ---------- */
+const carouselItems = [
+  {
+    title:'He explains the opportunities available even abroad',
+    link:'https://youtu.be/CVXN4AEuhlA?si=Rr4qAycpaa4AoTUl',
+    img:'https://img.youtube.com/vi/CVXN4AEuhlA/maxresdefault.jpg'
+  },
+  {
+    title:'A Complete Interview Guide for Core Engineering Jobs',
+    link:'https://youtu.be/k1PM6Nzp2cE?si=sQOextmMfs3scHxO',
+    img:'https://img.youtube.com/vi/k1PM6Nzp2cE/maxresdefault.jpg'
+  },
+  {
+    title:'Imagination and practice shape successful engineers.',
+    link:'https://youtu.be/l9XJno_rpMk?si=yzBjzux0-kH57nNk',
+    img:'https://img.youtube.com/vi/l9XJno_rpMk/maxresdefault.jpg'
+  },
+  {
+    title:'The voice of Common People',
+    link:'https://youtu.be/8xZusZsiiwA?si=tV546qgoEFDlRnJV',
+    img:'https://img.youtube.com/vi/8xZusZsiiwA/maxresdefault.jpg'
+  },
+  {
+    title:'Overreliance on AI and ChatGPT can weaken memory and creativity.',
+    link:'https://youtu.be/oFI2Lj9Kxg8?si=BAkhH9KE-uOl8CWX',
+    img:'https://img.youtube.com/vi/oFI2Lj9Kxg8/maxresdefault.jpg'
+  },
+  {
+    title:'War and Its Impact: Indians, Industry, and Recovery',
+    link:'https://youtu.be/O0lVYBwRPoI?si=B-aTOherFBMhLhSx',
+    img:'https://img.youtube.com/vi/O0lVYBwRPoI/maxresdefault.jpg'
+  }
+];
+const track = document.getElementById('carouselTrack');
+function fillCarousel(){
+[...carouselItems, ...carouselItems].forEach(item=>{
+      const c = document.createElement('div');
+    c.className='c-card';
+c.onclick = ()=>window.open(item.link,'_blank');    c.innerHTML = `
+      <div class="c-thumb">
+  <img src="${item.img}" alt="${item.title}">
+  <div class="play-ic">${playSvg()}</div>
+</div>
+      <div class="c-body">
+        <h5>${item.title}</h5>
+        <a href="${item.link}" target="_blank" rel="noopener">Watch Now →</a>
+      </div>`;
+    track.appendChild(c);
+  });
+}
+fillCarousel();
+
+/* ---------- CONTACT FORM ---------- */
+async function handleSubmit(event){
+
+    event.preventDefault();
+
+    const name = document.getElementById("cname").value;
+    const email = document.getElementById("cemail").value;
+    const subject = document.getElementById("csubject").value;
+    const message = document.getElementById("cmessage").value;
+
+
+    try {
+
+        const response = await fetch("http://192.168.2.19", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                name,
+                email,
+                subject,
+                message
+            })
+        });
+
+
+        const result = await response.json();
+
+        alert(result.message);
+
+        document.getElementById("contactForm").reset();
+
+
+    } catch(error){
+
+        console.log(error);
+
+        alert("Something went wrong. Please try again.");
+
+    }
+
+}
+/* ---------- SECTION FADE/SLIDE VARIETY ---------- */
+gsap.utils.toArray('.service-card').forEach((c,i)=>{
+  gsap.fromTo(c,{opacity:0,y:50},{opacity:1,y:0,duration:.7,ease:'power3.out',
+    scrollTrigger:{trigger:c, start:'top 92%'}, delay:(i%3)*0.08});
+});
+gsap.utils.toArray('.video-card').forEach((c,i)=>{
+  gsap.fromTo(c,{opacity:0,y:50},{opacity:1,y:0,duration:.7,ease:'power3.out',
+    scrollTrigger:{trigger:c, start:'top 92%'}, delay:(i%3)*0.08});
+});
+gsap.utils.toArray('.tl-item').forEach((c)=>{
+  gsap.fromTo(c,{opacity:0,x:-40},{opacity:1,x:0,duration:.7,ease:'power3.out',
+    scrollTrigger:{trigger:c, start:'top 90%'}});
+});
+</script>
+</body>
+</html>
