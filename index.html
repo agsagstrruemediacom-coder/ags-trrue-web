@@ -1330,25 +1330,22 @@ async function handleSubmit(event){
 
     try {
 
-        const response = await fetch("https://ags-trrue-web.onrender.com/enquiry", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                name,
-                email,
-                subject,
-                message
-            })
-        });
+      await emailjs.send(
+    "service_5clk3e2",
+    "template_qckvebe",
+    {
+        name: name,
+        email: email,
+        subject: subject,
+        message: message
+    }
+);
 
+alert("Your enquiry has been sent successfully!");
 
-        const result = await response.json();
-
-        alert(result.message);
-
-        document.getElementById("contactForm").reset();
+setTimeout(() => {
+    document.getElementById("contactForm").reset();
+}, 100);
 
 
     } catch(error){
@@ -1373,6 +1370,15 @@ gsap.utils.toArray('.tl-item').forEach((c)=>{
   gsap.fromTo(c,{opacity:0,x:-40},{opacity:1,x:0,duration:.7,ease:'power3.out',
     scrollTrigger:{trigger:c, start:'top 90%'}});
 });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+(function(){
+    emailjs.init({
+        publicKey: "-1WitfOQYNNVCkdZw",
+    });
+})();
 </script>
 </body>
 </html>
